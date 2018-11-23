@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string-array name="province">
+        <item>Agadir Ida-Outanane</item>
+        <item>Al Haouz</item>
+        <item>Al Hoceïma</item>
+        <item>Aousserd</item>
+        <item>Assa-Zag</item>
+        <item>Azilal</item>
+        <item>Béni-Mellal</item>
+        <item>Benslimane</item>
+        <item>Berrechid</item>
+        <item>Berkane</item>
+        <item>Boujdour</item>
+        <item>Boulemane</item>
+        <item>Casablanca</item>
+        <item>Chefchaouen</item>
+        <item>Chichaoua</item>
+        <item>Chtouka-Aït Baha </item>
+        <item>Driouch</item>
+        <item>El Hajeb</item>
+        <item>El Jadida</item>
+        <item>Errachidia</item>
+        <item>Essaouira</item>
+        <item>Es-Semara</item>
+        <item>Fès</item>
+        <item>Kénitra</item>
+        <item>Rabat</item>
+        <item>Tétouan</item>
+        <item>Tanger-Asilah</item>
+    </string-array>
+</resources>

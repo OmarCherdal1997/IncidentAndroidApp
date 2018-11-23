@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/camera_btn"
+        android:src="@drawable/baseline_photo"/>
+
+    <TextView
+        android:id="@+id/input_secteur"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/camera_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:hint="Secteur d'incident"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/input_type"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/input_secteur"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp" />
+
+    <Spinner
+        android:id="@+id/input_detail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="252dp" />
+
+
+    <Spinner
+        android:id="@+id/input_province"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="179dp"></Spinner>
+
+    <TextView
+        android:id="@+id/langitude"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/input_secteur"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="108dp"
+        android:hint="longitude" />
+
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/langitude"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="127dp"
+        android:hint="latitude" />
+
+    <ImageView
+        android:id="@+id/map_btn"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/langitude"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="35dp"
+
+        android:src="@drawable/baseline_location" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Description"
+        android:textStyle="italic" />
+</RelativeLayout>
