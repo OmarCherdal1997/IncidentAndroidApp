@@ -1,32 +1,41 @@
 <resources>
     <string name="app_name">Project</string>
-    <string-array name="province">
-        <item>Agadir Ida-Outanane</item>
-        <item>Al Haouz</item>
-        <item>Al Hoceïma</item>
-        <item>Aousserd</item>
-        <item>Assa-Zag</item>
-        <item>Azilal</item>
-        <item>Béni-Mellal</item>
-        <item>Benslimane</item>
-        <item>Berrechid</item>
-        <item>Berkane</item>
-        <item>Boujdour</item>
-        <item>Boulemane</item>
-        <item>Casablanca</item>
-        <item>Chefchaouen</item>
-        <item>Chichaoua</item>
-        <item>Chtouka-Aït Baha </item>
-        <item>Driouch</item>
-        <item>El Hajeb</item>
-        <item>El Jadida</item>
-        <item>Errachidia</item>
-        <item>Essaouira</item>
-        <item>Es-Semara</item>
-        <item>Fès</item>
-        <item>Kénitra</item>
-        <item>Rabat</item>
-        <item>Tétouan</item>
-        <item>Tanger-Asilah</item>
+    <string name="nav_home">Home</string>
+    <string name="nav_filter">Filter</string>
+    <string name="nav_map">Map</string>
+    <string-array name="type">
+        <item>Accidents  liés aux usagers</item>
+        <item> Accidents liés aux intervenants</item>
+        <item> Accidents liés à l\'environnement physique extérieur</item>
     </string-array>
+    <string-array name="typeFilter">
+        <item>Accidents  liés aux usagers</item>
+        <item> Accidents liés aux intervenants</item>
+        <item> Accidents liés à l\'environnement physique extérieur</item>
+    </string-array>
+
+    <string-array name="type1">
+        <item>vitesse excessive</item>
+        <item>usagers en forte affluence</item>
+        <item>panne ou arrêt d\'un véhicule</item>
+        <item>usagers circulant à contre sens</item>
+        <item>Autres..</item>
+
+    </string-array>
+    <string-array name="type2">
+        <item>défaut d\'organisation de l\'exploitation</item>
+        <item>absence de formation du personnel</item>
+        <item>absence de mise en place de mesures particulières alors que les conditions minimales d\'exploitation ne sont plus respectées</item>
+        <item>Autres..</item>
+    </string-array>
+    <string-array name="type3">
+        <item>avalanche aux têtes</item>
+        <item>chute de pierres ou effondrements aux têtes</item>
+        <item>séisme</item>
+        <item>Autres..</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps_viewer">Map</string>
 </resources>

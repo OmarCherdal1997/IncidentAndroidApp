@@ -8,40 +8,36 @@
         android:id="@+id/camera_btn"
         android:src="@drawable/baseline_photo"/>
 
-    <TextView
+    <EditText
         android:id="@+id/input_secteur"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/camera_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_alignStart="@+id/input_type"
+        android:layout_marginTop="43dp"
         android:hint="Secteur d'incident"
         android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/input_type"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/input_secteur"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp" />
+
+        android:layout_marginTop="227dp" />
 
     <Spinner
         android:id="@+id/input_detail"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="252dp" />
+        android:layout_marginBottom="233dp" />
+       " />
 
-
-    <Spinner
-        android:id="@+id/input_province"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="179dp"></Spinner>
 
     <TextView
         android:id="@+id/langitude"
@@ -49,8 +45,8 @@
         android:layout_height="50dp"
         android:layout_alignStart="@+id/input_secteur"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="162dp"
         android:hint="longitude" />
 
     <TextView
@@ -74,15 +70,25 @@
 
         android:src="@drawable/baseline_location" />
 
-    <TextView
+    <EditText
         android:layout_width="300dp"
         android:layout_height="70dp"
-
-
+        android:layout_centerHorizontal="true"
+         android:id="@+id/input_description"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="74dp"
         android:hint="Description"
         android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/input_description"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-74dp"
+        android:background="@color/colorSecondary"
+        android:text="Declarer" />
 </RelativeLayout>

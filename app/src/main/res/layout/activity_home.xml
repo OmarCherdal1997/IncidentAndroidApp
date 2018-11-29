@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:id="@+id/declare_btn"
-        android:text="Declare"
-        android:textStyle="italic"
-        android:textColor="#FFF"
+
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/nav_item"
+        app:itemIconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorAccent"
         android:background="@color/colorSecondary"
-        android:layout_marginTop="320dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:id="@+id/nav_bar"
+        >
+
+    </android.support.design.widget.BottomNavigationView>
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="0dp">
+
+        <Button
+            android:id="@+id/declare_btn"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+
+            android:layout_alignParentStart="true"
+
+            android:background="@color/colorSecondary"
+            android:text="Declare"
+            android:textColor="#FFF"
+            android:textStyle="italic" />
+
+    </FrameLayout>
 </RelativeLayout>

@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -33,7 +33,11 @@
         <activity
             android:name=".MapsActivity"
             android:label="title_activity_maps" />
-        <activity android:name=".DeclareActivity"></activity>
+        <activity android:name=".DeclareActivity" />
+        <activity
+            android:name=".MapsViewerActivity"
+            android:label="@string/title_activity_maps_viewer" />
+        <activity android:name=".FilterActivity"></activity>
     </application>
 
 </manifest>
