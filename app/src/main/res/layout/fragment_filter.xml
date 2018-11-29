@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FilterFragment">
+
+    <Spinner
+        android:id="@+id/input_type1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+
+        />
+
+    <Spinner
+        android:id="@+id/input_detail1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp" />
+    " />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@color/colorSecondary"
+        android:text="Search"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/search_btn"/>
+
+</FrameLayout>
