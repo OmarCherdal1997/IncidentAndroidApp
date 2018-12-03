@@ -107,9 +107,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Log.d(TAG,"addMarker:marker added");
                 DecimalFormat f = new DecimalFormat();
                 f.setMaximumFractionDigits(5);
-                longitude=latLng.longitude;
+                 latitude=latLng.longitude;
 
-                latitude=latLng.latitude;
+                longitude=latLng.latitude;
                 DeclareActivity.langitude.setText(""+f.format(longitude));
                 DeclareActivity.latitude.setText(""+f.format(latitude));
 

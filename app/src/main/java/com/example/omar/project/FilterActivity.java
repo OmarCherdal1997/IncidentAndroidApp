@@ -23,8 +23,8 @@ public class FilterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
-        input_detail=(Spinner) findViewById(R.id.input_detail1);
-        input_type=(Spinner) findViewById(R.id.input_type1);
+        input_detail=(Spinner) findViewById(R.id.filter_detail);
+        input_type=(Spinner) findViewById(R.id.filter_type);
         ArrayAdapter<CharSequence> typeAdapter=ArrayAdapter.createFromResource(this,
                 R.array.typeFilter, android.R.layout.simple_spinner_item);
         typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

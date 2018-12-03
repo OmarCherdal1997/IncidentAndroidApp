@@ -43,7 +43,7 @@ FilterFragment filterFragment;
 
                         case R.id.nav_filter:
                         //nav_bar.setItemTextAppearanceActive();
-                            startActivity(new Intent(HomeActivity.this, FilterActivity.class));
+                         setFragement(filterFragment);
                         return true;
 
                         case R.id.nav_map:

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import static android.content.ContentValues.TAG;
@@ -17,8 +18,14 @@ import static android.content.ContentValues.TAG;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FilterFragment extends Fragment {
-
+public class FilterFragment extends Fragment  {
+String typeFilter,detailFilter;
+int detailListchoisi=0;
+    Spinner detail,type;
+    String[] typee=new String[]{"Accidents  liés aux usagers","Accidents liés aux intervenants","Accidents liés à l\\'environnement physique extérieur"};
+    String[] typee1=new String[]{"vitesse excessive","usagers en forte affluence","panne ou arrêt d\\'un véhicule","usagers circulant à contre sens","Autres.."};
+    String[] typee2=new String[]{"défaut d\\'organisation de l\\'exploitation","absence de formation du personnel","absence de mise en place de mesures particulières alors que les conditions minimales d\\'exploitation ne sont plus respectées","Autres.."};
+    String[] typee3=new String[]{"avalanche aux têtes","chute de pierres ou effondrements aux têtes","séisme","Autres.."};
 
     public FilterFragment() {
         // Required empty public constructor
@@ -30,8 +37,68 @@ public class FilterFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_filter, container, false);
+        View view= inflater.inflate(R.layout.fragment_filter, container, false);
+        Button search=(Button)view.findViewById(R.id.search_btn);
+        type=(Spinner)view.findViewById(R.id.filter_type);
+        detail=(Spinner)view.findViewById(R.id.filter_detail);
+        ArrayAdapter<CharSequence> adapter_type=ArrayAdapter.createFromResource(getContext(),R.array.typeFilter,android.R.layout.simple_spinner_item);
+        adapter_type.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        type.setAdapter(adapter_type);
+        type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                typeFilter=typee[position];
+                Log.d(TAG,"le type est : "+typeFilter);
+                detailListchoisi=position;
+                switch (position){
+                    case 0:
+                        ArrayAdapter<CharSequence> type1Adapter=ArrayAdapter.createFromResource(getContext(),
+                                R.array.type1, android.R.layout.simple_spinner_item);
+                        type1Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        detail.setAdapter(type1Adapter);
+                    case 1:
+                        ArrayAdapter<CharSequence> type2Adapter=ArrayAdapter.createFromResource(getContext(),
+                                R.array.type2, android.R.layout.simple_spinner_item);
+                        type2Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        detail.setAdapter(type2Adapter);
+                    case 2:
+                        ArrayAdapter<CharSequence> type3Adapter=ArrayAdapter.createFromResource(getContext(),
+                                R.array.type3, android.R.layout.simple_spinner_item);
+                        type3Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        detail.setAdapter(type3Adapter);}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        detail.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(detailListchoisi==1){
+                    detailFilter=typee1[position];
+                    Log.d(TAG,"le detail est : "+detailFilter);
+                }
+                else if(detailListchoisi==2){
+                    detailFilter=typee2[position];
+                    Log.d(TAG,"le detail est : "+detailFilter);
+                }
+                else if(detailListchoisi==3){
+                    detailFilter=typee3[position];
+                    Log.d(TAG,"le detail est : "+detailFilter);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+
+            }
+        });
+        return view;
 
     }
+
 
 }
