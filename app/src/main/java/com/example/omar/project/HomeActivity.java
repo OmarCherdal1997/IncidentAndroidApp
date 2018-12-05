@@ -24,10 +24,11 @@ FilterFragment filterFragment;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        declare =(Button)findViewById(R.id.declare_btn);
-        declare.setOnClickListener(this);
+        //declare =(Button)findViewById(R.id.declare_btn);
+        //declare.setOnClickListener(this);
         homeFragment=new HomeFragment();
         filterFragment=new FilterFragment();
+        setFragement(homeFragment);
 
 
         main_frame=(FrameLayout) findViewById(R.id.main_frame);
@@ -69,7 +70,7 @@ FilterFragment filterFragment;
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.declare_btn:
-                startActivity(new Intent(HomeActivity.this, DeclareActivity.class));
+               // startActivity(new Intent(HomeActivity.this, DeclareActivity.class));
         }
     }
 }

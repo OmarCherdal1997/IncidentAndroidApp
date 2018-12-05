@@ -4,9 +4,13 @@
     <string name="nav_filter">Filter</string>
     <string name="nav_map">Map</string>
     <string-array name="type">
+        <item>type d\'incident</item>
         <item>Accidents  liés aux usagers</item>
         <item> Accidents liés aux intervenants</item>
         <item> Accidents liés à l\'environnement physique extérieur</item>
+    </string-array>
+    <string-array name="detail0">
+        <item>Detail</item>
     </string-array>
     <string-array name="typeFilter">
         <item>Accidents  liés aux usagers</item>
@@ -15,6 +19,7 @@
     </string-array>
 
     <string-array name="type1">
+        <item>Detail</item>
         <item>vitesse excessive</item>
         <item>usagers en forte affluence</item>
         <item>panne ou arrêt d\'un véhicule</item>
@@ -23,12 +28,14 @@
 
     </string-array>
     <string-array name="type2">
+        <item>Detail</item>
         <item>défaut d\'organisation de l\'exploitation</item>
         <item>absence de formation du personnel</item>
         <item>absence de mise en place de mesures particulières alors que les conditions minimales d\'exploitation ne sont plus respectées</item>
         <item>Autres..</item>
     </string-array>
     <string-array name="type3">
+        <item>Detail</item>
         <item>avalanche aux têtes</item>
         <item>chute de pierres ou effondrements aux têtes</item>
         <item>séisme</item>

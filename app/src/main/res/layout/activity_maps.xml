@@ -10,12 +10,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MapsActivity" />
-<ImageView
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:layout_alignParentRight="true"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="10dp"
-    android:src="@mipmap/ic_location"
-    android:id="@+id/location_btn"/>
+
+    <ImageView
+        android:id="@+id/location_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="4dp"
+        android:src="@mipmap/ic_location" />
 </RelativeLayout>

@@ -1,8 +1,11 @@
 package com.example.omar.project;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,21 +27,22 @@ import com.google.android.gms.tasks.Task;
 
 import java.text.DecimalFormat;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,View.OnClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
 
-    private static final String TAG ="MapsActivity" ;
-    private static final float DEFAULT_ZOOM =15f ;
+    private static final String TAG = "MapsActivity";
+    private static final float DEFAULT_ZOOM = 15f;
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    protected static double longitude,latitude;
-      ImageView location_btn;
+    protected static double devicelatitude, deviceLongitude;
+    protected static double longitude, latitude;
+    ImageView location_btn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        location_btn=(ImageView)findViewById(R.id.location_btn);
+        location_btn = (ImageView) findViewById(R.id.location_btn);
         location_btn.setOnClickListener(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -48,13 +52,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
 
         getDeviceLocation();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
     }
     private void getDeviceLocation(){
         fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(this);
@@ -67,6 +75,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                      if (task.isSuccessful()){
                          Log.d(TAG,"onComplete: found location ! ");
                          Location currentLocation=(Location) task.getResult();
+                         devicelatitude=currentLocation.getLatitude();
+                         deviceLongitude=currentLocation.getLongitude();
                          moveCamera(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()),DEFAULT_ZOOM,"My location");
                      }
                      else {
@@ -87,12 +97,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void moveCamera(LatLng latLng, float defaultZoom, String title) {
         Log.d(TAG,"moveCamera: moving the camera to: LAt:"+latLng.latitude+",lng:" +latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,defaultZoom));
-        /*if (!title.equals("My location")){
+
+        if (!title.equals("My location")){
             MarkerOptions options=new MarkerOptions().position(latLng).title(title);
             mMap.addMarker(options);
-        }*/
-        MarkerOptions options=new MarkerOptions().position(latLng).title(title);
-        mMap.addMarker(options);
+        }
+       // MarkerOptions options=new MarkerOptions().position(latLng).title(title);
+        //mMap.addMarker(options);
     }
     private void AddLocation(){
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
