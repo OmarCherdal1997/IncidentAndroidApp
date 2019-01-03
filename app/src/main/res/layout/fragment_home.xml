@@ -10,8 +10,9 @@
         android:id="@+id/declare_btn"
         android:layout_width="200dp"
         android:layout_height="50dp"
-
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="400dp"
 
         android:background="@color/colorSecondary"
         android:text="Declare"

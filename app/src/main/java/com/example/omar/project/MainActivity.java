@@ -12,7 +12,10 @@ import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG ="MainActivity" ;
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 private final int  MY_PERMISSIONS_REQUEST_READ_PHONE_STATE=200;
 private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
 private static final int LOCATION_PERMISSION_REQUEST_CAMERA = 1235;
+private ImageView logo;
 
 protected static boolean locationPermissionGranted=false;
 
@@ -35,6 +39,9 @@ protected static boolean locationPermissionGranted=false;
         cameraPermissions();
         start=(Button)findViewById(R.id.start_btn);
         start.setOnClickListener(this);
+        logo=(ImageView)findViewById(R.id.welcome_img);
+        Animation logoAnimation=AnimationUtils.loadAnimation(this,R.anim.rotate);
+        logo.startAnimation(logoAnimation);
 
     }
     private void getEMEINumber(){
