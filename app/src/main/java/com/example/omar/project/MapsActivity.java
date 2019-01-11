@@ -63,6 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
         mMap.setMyLocationEnabled(true);
+
     }
     private void getDeviceLocation(){
         fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(this);
@@ -78,6 +79,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                          devicelatitude=currentLocation.getLatitude();
                          deviceLongitude=currentLocation.getLongitude();
                          moveCamera(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()),DEFAULT_ZOOM,"My location");
+                         latitude=devicelatitude;
+                         longitude=deviceLongitude;
+                         DecimalFormat f = new DecimalFormat();
+                         DeclareActivity.langitude.setText(""+f.format(deviceLongitude));
+                         DeclareActivity.latitude.setText(""+f.format(devicelatitude));
                      }
                      else {
                          Log.d(TAG,"onComplete:current location is null! ");

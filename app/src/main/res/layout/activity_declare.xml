@@ -18,7 +18,7 @@
         android:layout_below="@+id/camera_btn"
         android:layout_alignStart="@+id/input_type"
         android:layout_marginTop="43dp"
-        android:hint="Secteur d'incident"
+        android:hint="Nom utilsateur"
         android:textSize="16sp"
         android:padding="10dp"
         />

@@ -15,11 +15,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class DeclareActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG ="DeclareActivity" ;
+    DatabaseHelper databaseHelper;
     ImageView map_btn;
     Button submit;
     static ImageView  camera_btn;
@@ -97,7 +99,7 @@ String[] typee3=new String[]{"Detail","avalanche aux têtes","chute de pierres o
             }
         });
 
-        /*input_detail.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        input_detail.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(detailListchoisi==1){
@@ -118,12 +120,28 @@ String[] typee3=new String[]{"Detail","avalanche aux têtes","chute de pierres o
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });*/
+        });
+
+       databaseHelper=new DatabaseHelper(getApplicationContext());
 
 
 
 
     }
+    public void addData(String type,String detail,String Description,Double longitude, Double latitude, String img,long date){
+        boolean insertData=databaseHelper.addData(type,detail,Description,longitude,latitude,img,date);
+        if(insertData){
+            toastMessage("Data inserted Successfully!");
+        }
+        else {
+            toastMessage("Data insert error!");
+        }
+    }
+
+    private void toastMessage(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
     private void getImage(){
         Log.d(TAG,"getImage: openning dialog to choose new photo");
         Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -142,14 +160,13 @@ String[] typee3=new String[]{"Detail","avalanche aux têtes","chute de pierres o
                 getImage();
                 break;
             case R.id.submit_btn:
-                sendData();
+                long date=System.currentTimeMillis();
+                addData(type,detail,Description,MapsActivity.longitude,MapsActivity.latitude,databaseHelper.BitmapToString(bitmap),date);
                 break;
         }
     }
     //Data sending Function
-    private void sendData() {
 
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

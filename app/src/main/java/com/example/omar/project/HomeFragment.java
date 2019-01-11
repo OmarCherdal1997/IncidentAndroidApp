@@ -13,6 +13,7 @@ import android.widget.Button;
 public class HomeFragment extends Fragment {
 
 Button declare;
+Button listview;
 
 
 
@@ -22,10 +23,17 @@ Button declare;
         // Inflate the layout for this fragment
         View view=  inflater.inflate(R.layout.fragment_home, container, false);
         declare=(Button)view.findViewById(R.id.declare_btn);
+       listview=(Button)view.findViewById(R.id.list_btn);
         declare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), DeclareActivity.class));
+            }
+        });
+        listview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Main2Activity.class));
             }
         });
         return view;

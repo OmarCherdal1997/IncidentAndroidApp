@@ -1,6 +1,7 @@
 package com.example.omar.project;
 
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,6 +12,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.GoogleMap;
+
+import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
 
@@ -19,7 +25,13 @@ import static android.content.ContentValues.TAG;
  * A simple {@link Fragment} subclass.
  */
 public class FilterFragment extends Fragment  {
-String typeFilter,detailFilter;
+    static ArrayList<Reclamation> RecLamatioList=new ArrayList<Reclamation>();
+    DatabaseHelper databaseHelper;
+    MapsViewerActivity mapsViewerActivity=new MapsViewerActivity();
+    public double longi;
+    public double lat;
+ static  String typeFilter,detailFilter;
+ static ArrayList<Point> PointList=new ArrayList<Point>();
 int detailListchoisi=0;
     Spinner detail,type;
     String[] typee=new String[]{"type d\\'incident","Accidents  liés aux usagers","Accidents liés aux intervenants","Accidents liés à l\\'environnement physique extérieur"};
@@ -38,6 +50,12 @@ int detailListchoisi=0;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_filter, container, false);
         Button search=(Button)view.findViewById(R.id.search_btn);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fetchData();
+            }
+        });
         type=(Spinner)view.findViewById(R.id.filter_type);
         detail=(Spinner)view.findViewById(R.id.filter_detail);
         ArrayAdapter<CharSequence> adapter_type=ArrayAdapter.createFromResource(getContext(),R.array.type,android.R.layout.simple_spinner_item);
@@ -104,9 +122,32 @@ int detailListchoisi=0;
 
             }
         });
+        databaseHelper=new DatabaseHelper(this.getContext());
         return view;
 
     }
 
+    public void fetchData(){
+        Cursor data=databaseHelper.getData();
+        if(data.getCount()==0){
+            Log.d(TAG,"Filter Fragment: Fetchdata la table est Vide");
+        }
+        else {
+            Log.d(TAG,"Filter Fragment: Fetchdata le nombre d'enregistrement: "+data.getCount());
 
+   while (data.moveToNext()) {
+       Log.d(TAG, "Filter Fragment: Fetchdata  latitude: " + data.getString(4));
+       Log.d(TAG, "Filter Fragment: Fetchdata longitude: " + data.getString(5));
+       Log.d(TAG, "Filter Fragment: Fetchdata longitude: " + data.getString(1));
+       Log.d(TAG, "Filter Fragment: Fetchdata longitude: " + data.getString(2));
+       Log.d(TAG, "Filter Fragment: Fetchdata longitude: " + data.getString(6));
+       PointList.add(new Point(Double.parseDouble(data.getString(4)), Double.parseDouble(data.getString(5))));
+       RecLamatioList.add(new Reclamation(databaseHelper.stringToBitmap(data.getString(6)),data.getString(2),data.getString(1)));
+       // longi=Double.parseDouble(data.getString(5));
+       // lat=Double.parseDouble(data.getString(4));
+
+
+   }
+        }
+    }
 }
